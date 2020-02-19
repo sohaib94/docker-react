@@ -3,7 +3,8 @@ services:
   - docker
 
 before_install:
-  - printenv
+  - echo $AWS_ACCESS_KEY
+  - echo $AWS_SECRET_KEY
   - docker build -t sohaibashraf/docker-react -f Dockerfile.dev .
 
 script:
