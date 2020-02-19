@@ -3,19 +3,16 @@ services:
   - docker
 
 before_install:
-  - echo $AWS_ACCESS_KEY
-  - echo $AWS_SECRET_KEY
   - docker build -t sohaibashraf/docker-react -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true sohaibashraf/docker-react npm run test -- --coverage
 
 deploy:
-  edge: true
   provider: elasticbeanstalk
   region: "eu-west-2"
   app: "docker-react"
-  environment: "DockerReact-env"
+  #environment: "DockerReact-env"
   bucket_name: "elasticbeanstalk-eu-west-2-041608945461"
   bucket_path: "docker-react"
   on:
