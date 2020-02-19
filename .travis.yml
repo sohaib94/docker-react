@@ -3,6 +3,7 @@ services:
   - docker
 
 before_install:
+  - printenv
   - docker build -t sohaibashraf/docker-react -f Dockerfile.dev .
 
 script:
